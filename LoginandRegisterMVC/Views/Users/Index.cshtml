@@ -1,0 +1,75 @@
+﻿@model IEnumerable<InterviewTracker.Models.User>
+
+
+
+
+
+
+@{
+    ViewBag.Title = "Dashboard Home";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Dashboard Home</h2>
+
+@Session["Username"] has logged in!!!
+
+<p>
+    @Html.ActionLink("Registration", "Register")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+                </td>*@
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Logout", "Logout")
+</p>
